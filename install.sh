@@ -1,6 +1,6 @@
 #~/bin/bash
 sudo apt-get install build-essential cmake python-dev python3-dev
-ln -s ~/.vim/vimrc ~/vimrc
+ln -s ~/.vim/.vimrc ~/vimrc
 cd ~/.vim
 git submodule init
 git submodule update --init --recursive
