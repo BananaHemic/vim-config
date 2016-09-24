@@ -3,9 +3,7 @@ It's just a simple way for me to syncronize my vim settings across multiple syst
 
 #Installation
 git clone git://github.com/BananaHemic/vim-config.git ~/.vim
-##Create sym links
-ln -s ~/vim/vimrc ~/.vimrc
-##Install submodules
-cd ~/.vim
-git submodule init
-git submodule update
+sh ~/.vim/install.sh
+
+Then you're ready to rock :wink:
+
