@@ -1,5 +1,5 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible
+filetype off
 
 " set the runtime path to include Vundle and initialize
 if has("win32")
@@ -9,12 +9,10 @@ else
 	set rtp+=~/.vim/bundle/Vundle.vim
 	call vundle#begin()
 endif
-" " alternatively, pass a path where Vundle should install plugins
-" "call vundle#begin('~/some/path/here')
-"
-" " let Vundle manage Vundle, required
+
+" Use Vundle to manage the plugins
 Plugin 'VundleVim/Vundle.vim'
-" YouCompleteMe
+" Syntax completion
 Plugin 'Valloric/YouCompleteMe'
 " Railscasts for cool colors
 Plugin 'jpo/vim-railscasts-theme'
@@ -30,49 +28,46 @@ Plugin 'bling/vim-airline'
 Plugin 'bling/vim-bufferline'
 " Themes for the status bar
 Plugin 'vim-airline/vim-airline-themes'
-"
-" " The following are examples of different formats supported.
-" " Keep Plugin commands between vundle#begin/end.
-" " plugin on GitHub repo
+" Show which branch we're in
 Plugin 'tpope/vim-fugitive'
-" " plugin from http://vim-scripts.org/vim/scripts.html
+" plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
-" " Git plugin not hosted on GitHub
-" Plugin 'git://git.wincent.com/command-t.git'
-" " git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
-" " The sparkup vim script is in a subdirectory of this repo called vim.
-" " Pass the path to set the runtimepath properly.
-" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" " Install L9 and avoid a Naming conflict if you've already installed a
-" " different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
-"
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" " To ignore plugin indent changes, instead use:
-" "filetype plugin on
-" "
-" " Brief help
-" " :PluginList       - lists configured plugins
-" " :PluginInstall    - installs plugins; append `!` to update or just
-" :PluginUpdate
-" " :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" " :PluginClean      - confirms removal of unused plugins; append `!` to
-" auto-approve removal
-" "
-" " see :h vundle for more details or wiki for FAQ
-" " Put your non-Plugin stuff after this line
-" 
+
+" Put your non-Plugin stuff after this line
+ 
 set foldmethod=syntax
 syntax on
 colorscheme desert
+" make the backspace more natural
 set backspace=indent,eol,start
+" Show line numbers
 set number
+" Move between splits using Ctrl & h,j,k,l
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
-let g:airline#extensions#tabline#enabled = 1
+" Always show the statusbar
 set laststatus=2
+" Show the buffers, even if we only have one
+let g:airline#extensions#tabline#enabled = 1
+" No backups or swaps, yolo
+set nobackup
+set noswapfile
+" Hit F2 to toggle pasting mode, which lets you enter text without weird
+" formatting
+set pastetoggle=<F2> 
+" Use ; instead of :
+nnoremap ; :
+" Let's not use arrow keys
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
 
 " Syntastic syntax checking
 set statusline+=%#warningmsg#
