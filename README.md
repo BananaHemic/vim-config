@@ -3,8 +3,9 @@ Hey! Welcome to my vim config repo.
 It's just a simple way for me to syncronize my vim settings across multiple systems. It might not make sense for you to use this, as you'll probably want a configuration without the idiosyncracies of my vim preferences.
 
 #Installation
-1. git clone https://github.com/BananaHemic/vim-config.git ~/.vim
-2. sh ~/.vim/install.sh
+1. git clone https://github.com/BananaHemic/vim-config.git
+2. cd vim-config
+2. sudo sh install.sh
 
 Then you're ready to rock :wink:
 
