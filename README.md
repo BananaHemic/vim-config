@@ -5,7 +5,7 @@ It's just a simple way for me to syncronize my vim settings across multiple syst
 #Installation
 1. git clone https://github.com/BananaHemic/vim-config.git
 2. cd vim-config
-2. sudo sh install.sh
+3. sudo sh install.sh
 
 Then you're ready to rock :wink:
 
