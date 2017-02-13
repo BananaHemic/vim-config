@@ -7,6 +7,7 @@ It's just a simple way for me to syncronize my vim settings across multiple syst
 1. git clone https://github.com/BananaHemic/vim-config.git
 2. cd vim-config
 3. sudo sh install.sh
+
 ##Windows
 1. git clone https://github.com/BananaHemic/vim-config.git
 2. cd vim-config
