@@ -84,5 +84,8 @@ let g:syntastic_stl_format = "%e errs, :%fe"
 " Don't show warnings
 let g:airline_section_warning = ""
 
-
+"Python specific settings with tabs
+autocmd FileType python set tabstop=4 |set shiftwidth=4|set expandtab
+"Javascript specific settings
+autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
 
