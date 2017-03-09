@@ -63,6 +63,8 @@ set noswapfile
 set pastetoggle=<F2> 
 " Use ; instead of :
 nnoremap ; :
+" Use CAPSLOCK instead of esc
+inoremap jj <Esc>
 " Let's not use arrow keys
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
