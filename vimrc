@@ -15,7 +15,8 @@ Plugin 'VundleVim/Vundle.vim'
 " Syntax completion
 Plugin 'Valloric/YouCompleteMe'
 " Railscasts for cool colors
-Plugin 'jpo/vim-railscasts-theme'
+"Plugin 'jpo/vim-railscasts-theme'
+Plugin 'sjl/badwolf'
 " Another color scheme
 Plugin 'altercation/vim-colors-solarized'
 " Better python folding
@@ -28,6 +29,8 @@ Plugin 'bling/vim-airline'
 Plugin 'bling/vim-bufferline'
 " Themes for the status bar
 Plugin 'vim-airline/vim-airline-themes'
+" Enable a huge undo tree view
+Plugin 'sjl/gundo.vim'
 " Show which branch we're in
 Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
@@ -40,7 +43,9 @@ filetype plugin indent on    " required
  
 set foldmethod=syntax
 syntax on
-colorscheme desert
+colorscheme badwolf
+set cursorline
+set lazyredraw
 " make the backspace more natural
 set backspace=indent,eol,start
 " Show line numbers
@@ -58,6 +63,20 @@ let g:airline#extensions#tabline#enabled = 1
 " No backups or swaps, yolo
 set nobackup
 set noswapfile
+
+set wildmenu
+set showmatch
+set incsearch
+set hlsearch
+let mapleader=","
+" save a session via ,u Reopen via "vim -S"
+nnoremap <leader>s :mksession<CR>
+" Use ,u to enable a big undo tree
+nnoremap <leader>u :GundoToggle<CR>
+" za to toggle folding
+nnoremap <space> za
+" Use gV to highlight the last inserted text
+nnoremap gV `[v`]
 " Hit F2 to toggle pasting mode, which lets you enter text without weird
 " formatting
 set pastetoggle=<F2> 
