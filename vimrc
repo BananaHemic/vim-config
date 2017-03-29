@@ -73,6 +73,8 @@ let mapleader=","
 nnoremap <leader>s :mksession<CR>
 " Use ,u to enable a big undo tree
 nnoremap <leader>u :GundoToggle<CR>
+" Use ,h to clear highlighting
+:nnoremap <silent><expr> <leader>h (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n" 
 " za to toggle folding
 nnoremap <space> za
 " Use gV to highlight the last inserted text
