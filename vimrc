@@ -69,6 +69,8 @@ set showmatch
 set incsearch
 set hlsearch
 let mapleader=","
+" Use ,l to close the syntastic error box
+nnoremap <leader>l :lclose<CR>
 " save a session via ,u Reopen via "vim -S"
 nnoremap <leader>s :mksession<CR>
 " Use ,u to enable a big undo tree
