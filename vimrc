@@ -78,6 +78,8 @@ set hlsearch
 let mapleader=","
 " save a session via ,s Reopen via "vim -S"
 nnoremap <leader>s :mksession<CR>
+" Use ,l to close the syntastic error box
+nnoremap <leader>l :lclose<CR>
 " Use ,u to enable a big undo tree
 nnoremap <leader>u :GundoToggle<CR>
 " Use ,h to clear highlighting
