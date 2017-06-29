@@ -43,6 +43,13 @@ filetype plugin indent on    " required
  
 set foldmethod=syntax
 syntax on
+
+if !has("gui_running") && has("win32")
+	set term=xterm
+	set t_Co=256
+	let &t_AB="\e[48;5;%dm"
+	let &t_AF="\e[38;5;%dm"
+endif
 colorscheme badwolf
 set cursorline
 set lazyredraw
@@ -69,7 +76,7 @@ set showmatch
 set incsearch
 set hlsearch
 let mapleader=","
-" save a session via ,u Reopen via "vim -S"
+" save a session via ,s Reopen via "vim -S"
 nnoremap <leader>s :mksession<CR>
 " Use ,u to enable a big undo tree
 nnoremap <leader>u :GundoToggle<CR>
