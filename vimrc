@@ -49,6 +49,13 @@ if !has("gui_running") && has("win32")
 	set t_Co=256
 	let &t_AB="\e[48;5;%dm"
 	let &t_AF="\e[38;5;%dm"
+
+	"This is to fix a windows issue where backspace is mapped to delete
+	"when using term=xterm
+	"https://github.com/Maximus5/ConEmu/issues/641
+	"If you have backspace issues, this is probably why
+	inoremap <Char-0x07F> <BS>
+	nnoremap <Char-0x07F> <BS>
 endif
 colorscheme badwolf
 set cursorline
