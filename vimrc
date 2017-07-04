@@ -33,6 +33,8 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'sjl/gundo.vim'
 " Show which branch we're in
 Plugin 'tpope/vim-fugitive'
+" Show indentation in a neat way
+Plugin 'Yggdroot/indentLine'
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
 " " All of your Plugins must be added before the following line
@@ -59,6 +61,8 @@ if !has("gui_running") && has("win32")
 endif
 colorscheme badwolf
 set cursorline
+" Make the indentation indicators grayish
+let g:indentLine_color_term = 239
 set lazyredraw
 " make the backspace more natural
 set backspace=indent,eol,start
