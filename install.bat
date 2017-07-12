@@ -5,6 +5,7 @@ mklink %USERPROFILE%\_vimrc %cd%\vimrc
 REM install Vundle
 git clone https://github.com/VundleVim/Vundle.vim.git %USERPROFILE%\vimfiles\bundle\Vundle.vim
 vim +PluginInstall +qall
+vim +GoInstallBinaries
 REM Install YouCompleteMe
-python %USERPROFILE%\vimfiles\bundle\YouCompleteMe\install.py --clang-completer
+python %USERPROFILE%\vimfiles\bundle\YouCompleteMe\install.py --clang-completer --gocode-completer
 

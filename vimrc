@@ -33,6 +33,8 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'sjl/gundo.vim'
 " Show which branch we're in
 Plugin 'tpope/vim-fugitive'
+" GO support
+Plugin 'fatih/vim-go'
 " Show indentation in a neat way
 Plugin 'Yggdroot/indentLine'
 " plugin from http://vim-scripts.org/vim/scripts.html
@@ -78,6 +80,8 @@ nnoremap <C-H> <C-W><C-H>
 set laststatus=2
 " Show the buffers, even if we only have one
 let g:airline#extensions#tabline#enabled = 1
+" Stop vim-go from autofolding on save
+let g:go_fmt_autosave = 0
 " No backups or swaps, yolo
 set nobackup
 set noswapfile
@@ -93,6 +97,12 @@ nnoremap <leader>s :mksession<CR>
 nnoremap <leader>l :lclose<CR>
 " Use ,u to enable a big undo tree
 nnoremap <leader>u :GundoToggle<CR>
+" Use ,gc to run go linter
+nnoremap <leader>gc :GoMetaLinter<CR>
+" Use ,gb to build go file
+nnoremap <leader>gb :GoBuild<CR>
+" Use ,gf to fmt go file
+nnoremap <leader>gf :GoFmt<CR>
 " Use ,h to clear highlighting
 :nnoremap <silent><expr> <leader>h (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n" 
 " za to toggle folding
@@ -112,6 +122,8 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
+" Disable YouCompleteMe previw box popping up in the top
+set completeopt-=preview
 " Syntastic syntax checking
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -127,8 +139,11 @@ let g:syntastic_stl_format = "%e errs, :%fe"
 " Don't show warnings
 let g:airline_section_warning = ""
 
+" Default tabs/spaces
+set tabstop=4
+set shiftwidth=4
+set expandtab
 "Python specific settings with tabs
 autocmd FileType python set tabstop=4 |set shiftwidth=4|set expandtab
 "Javascript specific settings
 autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
-
