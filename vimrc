@@ -90,6 +90,8 @@ set wildmenu
 set showmatch
 set incsearch
 set hlsearch
+" Wait 100ms for key combinations
+set ttimeoutlen=100
 let mapleader=","
 " save a session via ,s Reopen via "vim -S"
 nnoremap <leader>s :mksession<CR>
@@ -101,12 +103,14 @@ nnoremap <leader>u :GundoToggle<CR>
 nnoremap <leader>gc :GoMetaLinter<CR>
 " Use ,gb to build go file
 nnoremap <leader>gb :GoBuild<CR>
-" Use ,gf to fmt go file
+" Use ,gf to format go file
 nnoremap <leader>gf :GoFmt<CR>
 " Use ,h to clear highlighting
 :nnoremap <silent><expr> <leader>h (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n" 
-" za to toggle folding
+" space to toggle folding
 nnoremap <space> za
+" Use ,r to rename word under caret
+nnoremap <Leader>r :%s/\<<C-r><C-w>\>//g<Left><Left>
 " Use gV to highlight the last inserted text
 nnoremap gV `[v`]
 " Hit F2 to toggle pasting mode, which lets you enter text without weird
