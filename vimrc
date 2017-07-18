@@ -94,7 +94,7 @@ set hlsearch
 set ttimeoutlen=100
 let mapleader=","
 " save a session via ,s Reopen via "vim -S"
-nnoremap <leader>s :mksession<CR>
+nnoremap <leader>s :mksession!<CR>
 " Use ,l to close the syntastic error box
 nnoremap <leader>l :lclose<CR>
 " Use ,u to enable a big undo tree
