@@ -37,6 +37,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'fatih/vim-go'
 " Show indentation in a neat way
 Plugin 'Yggdroot/indentLine'
+" Find files in a better way
+Plugin 'ctrlpvim/ctrlp.vim'
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
 " " All of your Plugins must be added before the following line
@@ -105,6 +107,8 @@ nnoremap <leader>gc :GoMetaLinter<CR>
 nnoremap <leader>gb :GoBuild<CR>
 " Use ,gf to format go file
 nnoremap <leader>gf :GoFmt<CR>
+" Use ,p to fuzzy find files
+nnoremap <leader>p :CtrlP<CR>
 " Use ,h to clear highlighting
 :nnoremap <silent><expr> <leader>h (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n" 
 " space to toggle folding
@@ -128,6 +132,14 @@ nnoremap <Down> :echoe "Use j"<CR>
 
 " Disable YouCompleteMe previw box popping up in the top
 set completeopt-=preview
+" CtrlP fuzzy file finding
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.dll     " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+let g:ctrlp_custom_ignore = 'git\|DS_Store\|node_modules\|hg\|svn'
+let g:ctrlp_prompt_mappings = {
+    \ 'PrtBS()':      ['<bs>', '<c-]>', '<c-h>'],
+    \ 'PrtCurLeft()': ['<left>', '<c-^>'],
+    \ }
 " Syntastic syntax checking
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
