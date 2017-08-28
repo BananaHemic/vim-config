@@ -63,6 +63,7 @@ if !has("gui_running") && has("win32")
 	inoremap <Char-0x07F> <BS>
 	nnoremap <Char-0x07F> <BS>
 endif
+
 colorscheme badwolf
 set cursorline
 " Make the indentation indicators grayish
@@ -122,13 +123,23 @@ nnoremap gV `[v`]
 set pastetoggle=<F2> 
 " Use ; instead of :
 nnoremap ; :
-" Use CAPSLOCK instead of esc
-inoremap jj <Esc>
 " Let's not use arrow keys
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
+
+" VsVim settings
+map gi :vsc Edit.GoToImplementation<CR>
+map gr :vsc Edit.FindAllReferences<CR>
+map gp :vsc Edit.PeekDefinition<CR>
+nnoremap <leader>m :vsc Edit.NextMethod<cr>
+nnoremap <leader>l :vsc Edit.PreviousMethod<cr>
+nnoremap R :vsc Refactor.Rename<cr>
+nnoremap <leader>e :vsc View.NextError<cr>
+nnoremap <leader>E :vsc View.PreviousError<cr>
+nnoremap cia :vsc Refactor.ReorderParameters<cr>
+
 
 " Disable YouCompleteMe previw box popping up in the top
 set completeopt-=preview
