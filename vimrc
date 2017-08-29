@@ -1,4 +1,5 @@
 set nocompatible
+set hidden
 filetype off
 
 " set the runtime path to include Vundle and initialize
@@ -54,7 +55,7 @@ if !has("gui_running") && has("win32")
 	set term=xterm
 	set t_Co=256
 	let &t_AB="\e[48;5;%dm"
-	let &t_AF="\e[38;5;%dm"
+    let &t_AF="\e[38;5;%dm"
 
 	"This is to fix a windows issue where backspace is mapped to delete
 	"when using term=xterm
@@ -83,6 +84,7 @@ nnoremap <C-H> <C-W><C-H>
 set laststatus=2
 " Show the buffers, even if we only have one
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 " Stop vim-go from autofolding on save
 let g:go_fmt_autosave = 0
 " No backups or swaps, yolo
@@ -113,6 +115,16 @@ nnoremap <leader>gb :GoBuild<CR>
 nnoremap <leader>gf :GoFmt<CR>
 " Use ,p to fuzzy find files
 nnoremap <leader>p :CtrlP<CR>
+" Use ,o to fuzzy find buffers
+nnoremap <leader>o :CtrlPBuffer<CR>
+" Use ,b to open the most recent buffer
+nnoremap <leader>b :b#<CR>
+" Use gb to move one buffer to the right
+nnoremap gb :bnext<CR>
+" Use gB to move a buffer to the left
+nnoremap gB :bprevious<CR>
+" Use ,q to close the current buffer
+nmap <leader>q :bp <BAR> bd #<CR>
 " Use ,h to clear highlighting
 :nnoremap <silent><expr> <leader>h (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n" 
 " space to toggle folding
