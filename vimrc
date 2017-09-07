@@ -40,6 +40,8 @@ Plugin 'fatih/vim-go'
 Plugin 'Yggdroot/indentLine'
 " Find files in a better way
 Plugin 'ctrlpvim/ctrlp.vim'
+" Comment lines out in an easier way
+Plugin 'scrooloose/nerdcommenter'
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
 " " All of your Plugins must be added before the following line
@@ -129,6 +131,8 @@ nmap <leader>q :bp <BAR> bd #<CR>
 :nnoremap <silent><expr> <leader>h (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n" 
 " space to toggle folding
 nnoremap <space> za
+" s to toggle comment
+map s <plug>NERDCommenterToggle
 " Use ,r to rename word under caret
 nnoremap <Leader>r :%s/\<<C-r><C-w>\>//g<Left><Left>
 " Use gV to highlight the last inserted text
