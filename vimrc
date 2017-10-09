@@ -1,5 +1,7 @@
 set nocompatible
 set hidden
+" Use UTF-8 (required by YCM)
+set encoding=utf-8
 filetype off
 
 " set the runtime path to include Vundle and initialize
