@@ -56,23 +56,22 @@ set foldmethod=syntax
 syntax on
 
 if !has("gui_running") && has("win32")
-	set term=xterm
-	set t_Co=256
-	let &t_AB="\e[48;5;%dm"
+    set term=xterm
+    set termencoding=utf-8
+    set t_Co=256
+    let &t_AB="\e[48;5;%dm"
     let &t_AF="\e[38;5;%dm"
 
 	"This is to fix a windows issue where backspace is mapped to delete
 	"when using term=xterm
 	"https://github.com/Maximus5/ConEmu/issues/641
 	"If you have backspace issues, this is probably why
-	inoremap <Char-0x07F> <BS>
-	nnoremap <Char-0x07F> <BS>
+    inoremap <Char-0x07F> <BS>
+    nnoremap <Char-0x07F> <BS>
 endif
 
 colorscheme badwolf
 set cursorline
-" Make the indentation indicators grayish
-let g:indentLine_color_term = 239
 set lazyredraw
 " make the backspace more natural
 set backspace=indent,eol,start
@@ -84,11 +83,16 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Make the indentation indicators grayish, and set it to a utf-8 friendly char
+let g:indentLine_color_term = 239
+let g:indentLine_char = '|'
 " Always show the statusbar
 set laststatus=2
 " Show the buffers, even if we only have one
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+" Use ascii symbols b/c windows compatibility
+let g:airline_symbols_ascii = 1
 " Stop vim-go from autofolding on save
 let g:go_fmt_autosave = 0
 " No backups or swaps, yolo
