@@ -165,6 +165,8 @@ nnoremap gb :bnext<CR>
 nnoremap gB :bprevious<CR>
 " space to toggle folding
 nnoremap <space> za
+" Also use space to toggle in tagbar
+let g:tagbar_map_togglefold = "<Space>"
 " s to toggle comment
 map s <plug>NERDCommenterToggle
 " Use ,r to rename word under caret
