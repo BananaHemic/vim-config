@@ -28,10 +28,10 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'scrooloose/syntastic'
 " Neat 'ol status bar
 Plugin 'bling/vim-airline'
-" Show what is in the buffers
-Plugin 'bling/vim-bufferline'
+" Add indicators to the left for edited lines
+Plugin 'mhinz/vim-signify'
 " Themes for the status bar
-Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'vim-airline/vim-airline-themes'
 " Enable a huge undo tree view
 Plugin 'sjl/gundo.vim'
 " Show which branch we're in
@@ -93,6 +93,24 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 " Use ascii symbols b/c windows compatibility
 let g:airline_symbols_ascii = 1
+let g:airline_section_y = '#%{bufnr("%")}'
+let g:airline_section_x = '%F'
+let g:airline_section_z = '%p%%'
+let g:airline#extensions#hunks#enabled = 1
+let g:airline#extensions#hunks#non_zero_only = 0
+let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
+" We only use git here
+let g:signify_vcs_list               = [ 'git' ]
+" Use these symbols for signify
+let g:signify_sign_show_text         =  1
+let g:signify_sign_add               = '+'
+let g:signify_sign_delete            = 'x'
+let g:signify_sign_delete_first_line = 'X'
+let g:signify_sign_change            = '~'
+" Color the left signs
+highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119
+highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
+highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
 " Stop vim-go from autofolding on save
 let g:go_fmt_autosave = 0
 " No backups or swaps, yolo
