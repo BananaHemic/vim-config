@@ -17,6 +17,8 @@ endif
 Plugin 'VundleVim/Vundle.vim'
 " Syntax completion
 Plugin 'Valloric/YouCompleteMe'
+" Allow a right side bar of the code
+Plugin 'majutsushi/tagbar'
 " Railscasts for cool colors
 "Plugin 'jpo/vim-railscasts-theme'
 Plugin 'sjl/badwolf'
@@ -94,7 +96,13 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 " Use ascii symbols b/c windows compatibility
 let g:airline_symbols_ascii = 1
 let g:airline_section_y = '#%{bufnr("%")}'
-let g:airline_section_x = '%F'
+" Function to get the two containing directories as a string
+function! GetContainingFolders()
+    let wd = getcwd()
+    let wd = join(split(wd, "\\")[-2:], "\\")
+    return wd
+endfunction
+let g:airline_section_x = '%{GetContainingFolders()}'
 let g:airline_section_z = '%p%%'
 let g:airline#extensions#hunks#enabled = 1
 let g:airline#extensions#hunks#non_zero_only = 0
@@ -145,14 +153,16 @@ nnoremap <leader>p :CtrlP<CR>
 nnoremap <leader>o :CtrlPBuffer<CR>
 " Use ,b to open the most recent buffer
 nnoremap <leader>b :b#<CR>
+" Use ,q to close the open buffer
+nmap <leader>q :bp <BAR> bd #<CR>
+" Use ,h to clear highlighting
+nnoremap <silent><expr> <leader>h (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n" 
+" Use ,t to open the tagbar toggle
+nnoremap <leader>t :TagbarToggle<CR>
 " Use gb to move one buffer to the right
 nnoremap gb :bnext<CR>
 " Use gB to move a buffer to the left
 nnoremap gB :bprevious<CR>
-" Use ,q to close the current buffer
-nmap <leader>q :bp <BAR> bd #<CR>
-" Use ,h to clear highlighting
-:nnoremap <silent><expr> <leader>h (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n" 
 " space to toggle folding
 nnoremap <space> za
 " s to toggle comment
@@ -182,7 +192,6 @@ nnoremap R :vsc Refactor.Rename<cr>
 nnoremap <leader>e :vsc View.NextError<cr>
 nnoremap <leader>E :vsc View.PreviousError<cr>
 nnoremap cia :vsc Refactor.ReorderParameters<cr>
-
 
 " Disable YouCompleteMe previw box popping up in the top
 set completeopt-=preview
