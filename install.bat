@@ -8,4 +8,5 @@ vim +PluginInstall +qall
 vim +GoInstallBinaries
 REM Install YouCompleteMe
 python %USERPROFILE%\vimfiles\bundle\YouCompleteMe\install.py --clang-completer --gocode-completer
-
+REM Install syntastic checker
+pip install pylint

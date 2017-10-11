@@ -8,4 +8,5 @@ vim +PluginInstall +qall
 type node >/dev/null 2>&1 || {echo "Will install node"; curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - sudo apt-get install -y nodejs;}
 #Install YouCompleteMe
 python ~/.vim/bundle/YouCompleteMe/install.py --tern-completer --clang-completer
-
+#Install syntastic checker
+pip install pylint
