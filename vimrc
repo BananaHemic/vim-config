@@ -133,8 +133,8 @@ set hlsearch
 set ttimeoutlen=100
 let mapleader=","
 " Move faster up, down with J,K (NB the caps)
-nnoremap J 3j
-nnoremap K 3k
+map J 3j
+map K 3k
 " save a session via ,s Reopen via "vim -S"
 nnoremap <leader>s :mksession!<CR>
 " Use ,l to close the syntastic error box
