@@ -121,6 +121,9 @@ highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
 highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
 " Stop vim-go from autofolding on save
 let g:go_fmt_autosave = 0
+" Stop vim-go from adding crazy mappings
+let g:go_def_mapping_enabled = 0
+let g:go_doc_keywordprg_enabled = 0
 " No backups or swaps, yolo
 set nobackup
 set noswapfile
