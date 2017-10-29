@@ -191,6 +191,7 @@ nnoremap <Down> :echoe "Use j"<CR>
 map gi :vsc Edit.GoToImplementation<CR>
 map gr :vsc Edit.FindAllReferences<CR>
 map gp :vsc Edit.PeekDefinition<CR>
+map s :vsc Edit.ToggleComment<CR>
 nnoremap <leader>m :vsc Edit.NextMethod<cr>
 nnoremap <leader>l :vsc Edit.PreviousMethod<cr>
 nnoremap R :vsc Refactor.Rename<cr>
