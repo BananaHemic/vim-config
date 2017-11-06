@@ -1,0 +1,18 @@
+" VsVim settings
+map gi :vsc Edit.GoToImplementation<CR>
+map gr :vsc Edit.FindAllReferences<CR>
+map gp :vsc Edit.PeekDefinition<CR>
+map s :vsc Edit.ToggleComment<CR>
+nnoremap <leader>m :vsc Edit.NextMethod<cr>
+nnoremap <leader>l :vsc Edit.PreviousMethod<cr>
+nnoremap R :vsc Refactor.Rename<cr>
+nnoremap <leader>e :vsc View.NextError<cr>
+nnoremap <leader>E :vsc View.PreviousError<cr>
+nnoremap cia :vsc Refactor.ReorderParameters<cr>
+
+" Use gb to move one buffer to the right
+/*nnoremap gb :vsc Window.NextTab<CR>*/
+" Use gB to move a buffer to the left
+/*nnoremap gB :vsc Window.PreviousTab<CR>*/
+
+:so ~/_vimcommon

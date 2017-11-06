@@ -1,0 +1,43 @@
+set nocompatible
+set hidden
+filetype off
+ 
+set foldmethod=syntax
+syntax on
+
+set cursorline
+" Show line numbers
+set number
+
+set wildmenu
+set showmatch
+set incsearch
+set hlsearch
+" Wait 100ms for key combinations
+set ttimeoutlen=100
+let mapleader=","
+" Move faster up, down with J,K (NB the caps)
+map J 3j
+map K 3k
+" space to toggle folding
+nnoremap <space> za
+" Use ,r to rename word under caret
+nnoremap <Leader>r :%s/\<<C-r><C-w>\>//g<Left><Left>
+" Use ; instead of :
+nnoremap ; :
+" Let's not use arrow keys
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
+
+" Default tabs/spaces
+set tabstop=4
+set shiftwidth=4
+set expandtab
+"Python specific settings with tabs
+autocmd FileType python set tabstop=4 |set shiftwidth=4|set expandtab
+"Javascript specific settings
+autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
+"Arduino settings
+autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab

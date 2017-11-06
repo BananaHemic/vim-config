@@ -128,16 +128,6 @@ let g:go_doc_keywordprg_enabled = 0
 set nobackup
 set noswapfile
 
-set wildmenu
-set showmatch
-set incsearch
-set hlsearch
-" Wait 100ms for key combinations
-set ttimeoutlen=100
-let mapleader=","
-" Move faster up, down with J,K (NB the caps)
-map J 3j
-map K 3k
 " save a session via ,s Reopen via "vim -S"
 nnoremap <leader>s :mksession!<CR>
 " Use ,l to close the syntastic error box
@@ -166,8 +156,6 @@ nnoremap <leader>t :TagbarToggle<CR>
 nnoremap gb :bnext<CR>
 " Use gB to move a buffer to the left
 nnoremap gB :bprevious<CR>
-" space to toggle folding
-nnoremap <space> za
 " Also use space to toggle in tagbar
 let g:tagbar_map_togglefold = "<Space>"
 " s to toggle comment
@@ -179,25 +167,11 @@ nnoremap gV `[v`]
 " Hit F2 to toggle pasting mode, which lets you enter text without weird
 " formatting
 set pastetoggle=<F2> 
-" Use ; instead of :
-nnoremap ; :
 " Let's not use arrow keys
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
-
-" VsVim settings
-map gi :vsc Edit.GoToImplementation<CR>
-map gr :vsc Edit.FindAllReferences<CR>
-map gp :vsc Edit.PeekDefinition<CR>
-map s :vsc Edit.ToggleComment<CR>
-nnoremap <leader>m :vsc Edit.NextMethod<cr>
-nnoremap <leader>l :vsc Edit.PreviousMethod<cr>
-nnoremap R :vsc Refactor.Rename<cr>
-nnoremap <leader>e :vsc View.NextError<cr>
-nnoremap <leader>E :vsc View.PreviousError<cr>
-nnoremap cia :vsc Refactor.ReorderParameters<cr>
 
 " Disable YouCompleteMe previw box popping up in the top
 set completeopt-=preview
@@ -224,11 +198,4 @@ let g:syntastic_stl_format = "%e errs, :%fe"
 " Don't show warnings
 let g:airline_section_warning = ""
 
-" Default tabs/spaces
-set tabstop=4
-set shiftwidth=4
-set expandtab
-"Python specific settings with tabs
-autocmd FileType python set tabstop=4 |set shiftwidth=4|set expandtab
-"Javascript specific settings
-autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
+:so ~/_vimcommon

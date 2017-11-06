@@ -1,6 +1,8 @@
 #~/bin/sh
 sudo apt-get install build-essential cmake python-dev python3-dev
 ln -s "$(pwd)/vimrc" ~/.vimrc
+ln -s "$(pwd)/vsvimrc" ~/_vsvimrc
+ln -s "$(pwd)/vimcommon" ~/_vimcommon
 #install Vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
