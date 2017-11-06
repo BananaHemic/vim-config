@@ -2,8 +2,8 @@ echo "TODO check for prereqs"
 REM Add a symlink to the vimrc
 del %USERPROFILE%\_vimrc
 mklink %USERPROFILE%\_vimrc %cd%\vimrc 
-mklink %USERPROFILE%\vsvimrc %cd%\vimrc 
-mklink %USERPROFILE%\vimcommon %cd%\vimcommon
+mklink %USERPROFILE%\_vsvimrc %cd%\vimrc 
+mklink %USERPROFILE%\_vimcommon %cd%\vimcommon
 REM install Vundle
 git clone https://github.com/VundleVim/Vundle.vim.git %USERPROFILE%\vimfiles\bundle\Vundle.vim
 vim +PluginInstall +qall
