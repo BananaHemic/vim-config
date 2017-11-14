@@ -53,6 +53,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 " Put your non-Plugin stuff after this line
+:so ~/_vimcommon
  
 set foldmethod=syntax
 syntax on
@@ -198,4 +199,3 @@ let g:syntastic_stl_format = "%e errs, :%fe"
 " Don't show warnings
 let g:airline_section_warning = ""
 
-:so ~/_vimcommon
