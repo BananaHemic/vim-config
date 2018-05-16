@@ -41,3 +41,5 @@ autocmd FileType python set tabstop=4 |set shiftwidth=4|set expandtab
 autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
 "Arduino settings
 autocmd FileType arduino set tabstop=2|set shiftwidth=2|set expandtab
+"C settings
+autocmd FileType c set tabstop=2|set shiftwidth=2|set expandtab
