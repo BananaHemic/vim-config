@@ -27,7 +27,7 @@ Plugin 'altercation/vim-colors-solarized'
 " Better python folding
 Plugin 'tmhedberg/SimpylFold'
 " Syntax checking
-Plugin 'scrooloose/syntastic'
+Plugin 'dense-analysis/ale'
 " Neat 'ol status bar
 Plugin 'bling/vim-airline'
 " Add indicators to the left for edited lines
@@ -39,7 +39,7 @@ Plugin 'sjl/gundo.vim'
 " Show which branch we're in
 Plugin 'tpope/vim-fugitive'
 " GO support
-Plugin 'fatih/vim-go'
+"Plugin 'fatih/vim-go'
 " Show indentation in a neat way
 Plugin 'Yggdroot/indentLine'
 " Find files in a better way
@@ -62,6 +62,7 @@ if !has("gui_running") && has("win32")
     set term=xterm
     set termencoding=utf-8
     set t_Co=256
+	" Background/ foreground color
     let &t_AB="\e[48;5;%dm"
     let &t_AF="\e[38;5;%dm"
 
@@ -69,8 +70,18 @@ if !has("gui_running") && has("win32")
 	"when using term=xterm
 	"https://github.com/Maximus5/ConEmu/issues/641
 	"If you have backspace issues, this is probably why
-    inoremap <Char-0x07F> <BS>
-    nnoremap <Char-0x07F> <BS>
+    "inoremap <Char-0x07F> <BS>
+    "nnoremap <Char-0x07F> <BS>
+	
+	"This fix is for the arrow keys + backspace in ConEmu
+	"https://github.com/Maximus5/ConEmu/issues/1900
+	let &t_kb="\xcex"
+	let &t_kD="\xceS"
+	
+	let &t_ku="\xceH"
+	let &t_kd="\xceP"
+	let &t_kl="\xceK"
+	let &t_kr="\xceM"
 endif
 
 colorscheme badwolf
